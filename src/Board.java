@@ -1,9 +1,13 @@
 import java.util.Random;
 
 
+/**
+ * @author Susanna
+ * This class represents a 4x4 suduko board
+ */
 public class Board {
 	Square squares[][] = new Square[4][4];
-	Random random = new Random();
+	private Random random = new Random();
 	
 	public Board() {
 		for(int i = 0; i < 4; i++) {
@@ -13,7 +17,11 @@ public class Board {
 		}
 	}
 	
-	void randomize() {
+	
+	/**
+	 * Creates a random board that is solvable
+	 */
+	public void randomize() {
 		while (!solveable()) {
 			int row = getRandomIndex();
 			int column = getRandomIndex();
@@ -26,7 +34,7 @@ public class Board {
 		}
 	}
 	
-	public boolean solveable() {
+	private boolean solveable() {
 		for (int row = 0; row < 4; row++) {
 			for (int column = 0; column < 4; column++) {
 				if (squares[row][column].hasAllPossiblities()) {

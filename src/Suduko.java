@@ -14,6 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 
+/**
+ * @author Susanna
+ *
+ * This class starts the Suduko and generates a random 4x4 board.
+ */
 public class Suduko extends JFrame{
 
 	private static final long serialVersionUID = 4245963788880015503L;
@@ -80,9 +85,7 @@ public class Suduko extends JFrame{
 	}
 	
 	private void createBoard() {
-		if (board == null || board.solveable()) {
-			board = new Board();
-		}
+		board = new Board();
 		board.randomize();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
